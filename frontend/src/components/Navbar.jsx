@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -6,11 +7,11 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
                 <h1 className="text-2xl font-bold text-blue-600">Vandana</h1>
                 <ul className="hidden md:flex gap-8 text-gray-700 dark:text-gray-200 font-medium">
-                    <li><a href="#home" className="hover:text-blue-500 transition">Home</a></li>
-                    <li><a href="#about" className="hover:text-blue-500 transition">About</a></li>
-                    <li><a href="#projects" className="hover:text-blue-500 transition">Projects</a></li>
-                    <li><a href="#skills" className="hover:text-blue-500 transition">Skills</a></li>
-                    <li><a href="#contact" className="hover:text-blue-500 transition">Contact</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/projects">Projects</Link></li>
+                    <li><Link to="/skills">Skills</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </div>
         </nav>
