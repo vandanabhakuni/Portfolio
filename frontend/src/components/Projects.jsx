@@ -1,32 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 
 const projects = [
   {
     title: "Full-Stack E-Commerce Website",
-    description:
-      "A multi-page e-commerce web app with authentication, product catalog, cart management, checkout flow, and admin panel. Built with React.js, Context API, MongoDB, and Axios.",
-    tech: ["React.js", "Node.js", "MongoDB", "Axios"],
-    link: "https://github.com/vandanabhakuni/B2World-Ecommerce", // replace with actual repo
+    shortDesc:
+      "A complete multi-page e-commerce platform with authentication, product catalog, cart management, and admin panel.",
+    longDesc:
+      "This project includes secure login/register with JWT, product filtering, sorting, and search functionality. It integrates React.js for the frontend, MongoDB for data storage, and Axios for API communication. The cart system is built with Context API to handle state globally. An admin panel allows managing products and orders. The app is fully responsive with a modern UI.",
+    tech: ["React.js", "Node.js", "MongoDB", "Axios", "JWT", "Context API"],
+    link: "https://github.com/vandanabhakuni/B2World-Ecommerce",
   },
   {
     title: "Dictionary App",
-    description:
-      "A responsive web app fetching real-time definitions via API. Features include theme toggling, animations, and keyboard interactions.",
-    tech: ["HTML", "CSS", "JavaScript", "API"],
-    link: "https://github.com/vandanabhakuni/Dictionary-App", // replace with actual repo
+    shortDesc:
+      "A responsive dictionary app that fetches real-time word definitions using an API.",
+    longDesc:
+      "The app allows users to search words and get instant definitions, phonetics, and examples. It includes a theme toggle (light/dark mode), smooth animations, and keyboard shortcut interactions for accessibility. Built with HTML, CSS, and JavaScript, it showcases API handling and dynamic UI rendering.",
+    tech: ["HTML", "CSS", "JavaScript", "API Integration"],
+    link: "https://github.com/vandanabhakuni/Dictionary-App",
   },
   {
     title: "Amazon Clone",
-    description:
-      "A fully responsive homepage UI inspired by Amazon. Built with HTML5 & CSS3 to practice layout, design, and responsiveness.",
-    tech: ["HTML5", "CSS3"],
-    link: "https://github.com/vandanabhakuni/Amazon-Clone", // replace with actual repo
+    shortDesc:
+      "A front-end clone of Amazon’s homepage to practice responsive layouts.",
+    longDesc:
+      "This project mimics the look and feel of Amazon’s homepage using only HTML5 and CSS3. It features navigation bars, product sections, banners, and a responsive grid system. The project helped practice UI/UX fundamentals, flexbox, and responsive design for multiple devices.",
+    tech: ["HTML5", "CSS3", "Responsive Design"],
+    link: "https://github.com/vandanabhakuni/Amazon-Clone",
   },
 ];
 
 const Projects = () => {
+  const [expanded, setExpanded] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpanded(expanded === index ? null : index);
+  };
+
   return (
     <section
       id="projects"
@@ -58,9 +70,12 @@ const Projects = () => {
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
                 {project.title}
               </h3>
+
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
-                {project.description}
+                {expanded === index ? project.longDesc : project.shortDesc}
               </p>
+
+              {/* Tech badges */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((t, i) => (
                   <span
@@ -71,7 +86,17 @@ const Projects = () => {
                   </span>
                 ))}
               </div>
+
+              {/* Toggle Button */}
+              <button
+                onClick={() => toggleExpand(index)}
+                className="text-sm text-blue-600 dark:text-blue-400 hover:underline mb-4"
+              >
+                {expanded === index ? "Show Less" : "Read More"}
+              </button>
             </div>
+
+            {/* GitHub Link */}
             <a
               href={project.link}
               target="_blank"
