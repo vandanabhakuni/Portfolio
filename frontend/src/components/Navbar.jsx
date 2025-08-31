@@ -32,11 +32,41 @@ const Navbar = () => {
       {/* Mobile Side Panel */}
       {menuOpen && (
         <div className="md:hidden flex flex-col gap-4 px-6 py-6 bg-white dark:bg-gray-900 shadow text-base font-medium">
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
-          <Link to="/skills" onClick={() => setMenuOpen(false)}>Skills</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-800 dark:text-white"
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-800 dark:text-white"
+          >
+            About
+          </Link>
+          <Link
+            to="/projects"
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-800 dark:text-white"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/skills"
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-800 dark:text-white"
+          >
+            Skills
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-800 dark:text-white"
+          >
+            Contact
+          </Link>
         </div>
       )}
     </nav>
